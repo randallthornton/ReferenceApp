@@ -11,9 +11,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WeatherForecastsComponent } from './weather-forecasts/weather-forecasts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, WeatherForecastsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
