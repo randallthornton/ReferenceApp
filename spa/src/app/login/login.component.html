@@ -1,0 +1,14 @@
+<div>
+  <div>Login</div>
+  <form class="flex flex-col gap-4" [formGroup]="loginForm">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" />
+    </mat-form-field>
+  </form>
+</div>

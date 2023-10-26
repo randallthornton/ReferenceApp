@@ -1,7 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="flex gap-4">
   <button mat-icon-button>
     <mat-icon>menu</mat-icon>
-
-    <span>App</span>
+  </button>
+  <div>stuff and things</div>
+  <div class="flex-1"></div>
+  <button mat-icon-button>
+    <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>
+<div class="p-4">
+  <router-outlet></router-outlet>
+</div>
