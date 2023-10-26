@@ -12,6 +12,6 @@ export class WeatherForecastsComponent {
   weatherForecasts: Signal<WeatherForecast[]>;
 
   constructor(private backendService: BackendService) {
-    this.weatherForecasts = toSignal(backendService.fetchWeatherForecasts(), { initialValue: []});
+    this.weatherForecasts = toSignal(this.backendService.fetchWeatherForecasts(), { initialValue: [] });
   }
 }

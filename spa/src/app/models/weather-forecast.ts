@@ -1,5 +1,6 @@
 export interface WeatherForecast {
   summary: string;
   date: string;
-  tempuratureC: number;
+  temperatureC: number;
+  temperatureF: number;
 }

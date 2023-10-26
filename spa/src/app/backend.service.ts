@@ -6,9 +6,9 @@ import { WeatherForecast } from './models/weather-forecast';
   providedIn: 'root',
 })
 export class BackendService {
-  url = '/api';
+  url = 'api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   fetchWeatherForecasts() {
     return this.http.get<WeatherForecast[]>(`${this.url}/weatherForecast`);

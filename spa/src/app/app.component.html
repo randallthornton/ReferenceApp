@@ -1,8 +1,8 @@
 <mat-toolbar color="primary" class="flex gap-4">
-  <button mat-icon-button>
+  <button mat-icon-button [mat-menu-trigger-for]="menu">
     <mat-icon>menu</mat-icon>
   </button>
-  <div>stuff and things</div>
+  <div>Reference App</div>
   <div class="flex-1"></div>
   <button mat-icon-button>
     <mat-icon>logout</mat-icon>
@@ -11,3 +11,7 @@
 <div class="p-4">
   <router-outlet></router-outlet>
 </div>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item [routerLink]="['login']">Login</a>
+  <a mat-menu-item [routerLink]="['weatherForecasts']">Basic Http Fetching</a>
+</mat-menu>

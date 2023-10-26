@@ -5,7 +5,7 @@ import { WeatherForecastsComponent } from './weather-forecasts/weather-forecasts
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
   },
   {
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

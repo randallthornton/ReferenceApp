@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WeatherForecastsComponent } from './weather-forecasts/weather-forecasts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, WeatherForecastsComponent],
@@ -26,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
