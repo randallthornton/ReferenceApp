@@ -11,4 +11,9 @@ export class LoginComponent {
     username: [''],
     password: [''],
   });
+
+  constructor() {
+  }
+
+  
 }
