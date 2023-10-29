@@ -19,7 +19,11 @@
     <input matInput formControlName="password" type="password" />
   </mat-form-field>
 
+  <mat-checkbox formControlName="persist">Persist Session</mat-checkbox>
+
   <div>
-    <button mat-raised-button color="primary">Login</button>
+    <button mat-raised-button color="primary" (click)="onLoginClicked()">
+      Login
+    </button>
   </div>
 </form>

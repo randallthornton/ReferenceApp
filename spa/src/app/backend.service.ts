@@ -13,4 +13,12 @@ export class BackendService {
   fetchWeatherForecasts() {
     return this.http.get<WeatherForecast[]>(`${this.url}/weatherForecast`);
   }
+
+  login(username: string, password: string, persist: boolean) {
+    return this.http.post(`${this.url}/login`, {
+      username,
+      password,
+      persist
+    })
+  }
 }

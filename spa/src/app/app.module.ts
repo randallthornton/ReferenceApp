@@ -15,6 +15,7 @@ import { WeatherForecastsComponent } from './weather-forecasts/weather-forecasts
 import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, WeatherForecastsComponent],
@@ -30,7 +31,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     HttpClientModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],
