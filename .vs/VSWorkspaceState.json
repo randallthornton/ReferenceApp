@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\backend",
-    "\\backend\\backend"
+    "\\backend\\backend",
+    "\\backend\\backend\\Controllers"
   ],
-  "SelectedNode": "\\backend\\backend\\Program.cs",
+  "SelectedNode": "\\backend\\backend\\backend.sln",
   "PreviewInSolutionExplorer": false
 }

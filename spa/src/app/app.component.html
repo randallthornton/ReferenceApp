@@ -4,9 +4,15 @@
   </button>
   <div>Reference App</div>
   <div class="flex-1"></div>
-  <button mat-icon-button>
-    <mat-icon>logout</mat-icon>
-  </button>
+  <ng-container *ngIf="isLoggedIn$ | async">
+    <button mat-icon-button [routerLink]="['userInfo']">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+  </ng-container>
 </mat-toolbar>
 <div class="p-4">
   <router-outlet></router-outlet>

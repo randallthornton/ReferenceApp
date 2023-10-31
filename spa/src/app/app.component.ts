@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './authentication.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'spa';
+  isLoggedIn$: Observable<boolean>
+
+  public constructor(private authService: AuthenticationService) {
+    this.isLoggedIn$ = authService.isLoggedIn$.asObservable();
+  }
 }

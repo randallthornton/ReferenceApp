@@ -1,6 +1,7 @@
 ﻿using backend.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -9,12 +10,12 @@ namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private UserManager<AppUser> userManager;
         private SignInManager<AppUser> signInManager;
 
-        public LoginController(UserManager<AppUser> userManager,
+        public AuthController(UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager)
         {
             this.userManager = userManager;
@@ -22,6 +23,7 @@ namespace backend.Controllers
         }
 
         [HttpPost]
+        [Route("login")]
         public async Task<ActionResult> Login([FromBody] LoginRequest request)
         {
             var signingResult = await signInManager.PasswordSignInAsync(request.Username, request.Password, request.Persist, false);
@@ -52,6 +54,25 @@ namespace backend.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpPost]
+        [Route("logout")]
+        public async Task<ActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("userInfo")]
+        [Authorize]
+        public async Task<ActionResult> GetUserInfo()
+        {
+            var user = HttpContext.User;
+            
+            return Ok(user.Claims.Select(x => $"{x.Type} - {x.Value}"));
         }
     }
 }

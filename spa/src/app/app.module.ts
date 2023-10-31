@@ -16,9 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, WeatherForecastsComponent],
+  declarations: [AppComponent, LoginComponent, WeatherForecastsComponent, UserInfoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

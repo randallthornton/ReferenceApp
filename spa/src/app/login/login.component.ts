@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BackendService } from '../backend.service';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,13 @@ export class LoginComponent {
   });
   isLoading = false;
 
-  constructor(private backendService: BackendService) {
+  constructor(private authService: AuthenticationService) {
   }
 
   onLoginClicked() {
     const value = this.loginForm.value;
     this.isLoading = true;
-    this.backendService.login(value.username ?? '', value.password ?? '', value.persist ?? false).subscribe(() => {
+    this.authService.login(value.username ?? '', value.password ?? '', value.persist ?? false).subscribe(() => {
       this.isLoading = false;
       console.log('sweeeet');
     }, (err) => {

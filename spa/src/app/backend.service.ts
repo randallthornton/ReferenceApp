@@ -14,11 +14,9 @@ export class BackendService {
     return this.http.get<WeatherForecast[]>(`${this.url}/weatherForecast`);
   }
 
-  login(username: string, password: string, persist: boolean) {
-    return this.http.post(`${this.url}/login`, {
-      username,
-      password,
-      persist
-    })
+  fetchWeatherForecastsSecure() {
+    return this.http.get<WeatherForecast[]>(`${this.url}/secure/weatherForecast`, {
+      withCredentials: true
+    });
   }
 }
