@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { BackendService } from '../backend.service';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -12,22 +11,26 @@ export class LoginComponent {
   loginForm = new FormBuilder().group({
     username: ['', Validators.required],
     password: ['', Validators.required],
-    persist: [false]
+    persist: [false],
   });
   isLoading = false;
 
-  constructor(private authService: AuthenticationService) {
-  }
+  constructor(private authService: AuthenticationService) {}
 
   onLoginClicked() {
     const value = this.loginForm.value;
     this.isLoading = true;
-    this.authService.login(value.username ?? '', value.password ?? '', value.persist ?? false).subscribe(() => {
-      this.isLoading = false;
-      console.log('sweeeet');
-    }, (err) => {
-      this.isLoading = false;
-      console.error('drat');
-    });
+    this.authService
+      .login(value.username ?? '', value.password ?? '', value.persist ?? false)
+      .subscribe(
+        () => {
+          this.isLoading = false;
+          console.log('sweeeet');
+        },
+        (err) => {
+          this.isLoading = false;
+          console.error('drat');
+        }
+      );
   }
 }

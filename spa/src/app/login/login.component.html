@@ -22,8 +22,11 @@
   <mat-checkbox formControlName="persist">Persist Session</mat-checkbox>
 
   <div>
-    <button mat-raised-button color="primary" (click)="onLoginClicked()">
-      Login
+    <button mat-raised-button color="primary" (click)="onLoginClicked()" [disabled]="isLoading">
+      <ng-container *ngIf="!isLoading; else loading">Login</ng-container>
+      <ng-template #loading>
+        <mat-spinner [diameter]="20"> </mat-spinner>
+      </ng-template>
     </button>
   </div>
 </form>

@@ -17,6 +17,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, WeatherForecastsComponent, UserInfoComponent],
@@ -33,7 +34,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
     HttpClientModule,
     MatMenuModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
