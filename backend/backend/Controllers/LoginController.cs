@@ -42,7 +42,7 @@ namespace backend.Controllers
 
                 var authProperties = new AuthenticationProperties
                 {
-                    IsPersistent = request.Persist
+                    IsPersistent = request.Persist,
                 };
 
                 await HttpContext.SignInAsync(
@@ -58,11 +58,12 @@ namespace backend.Controllers
 
         [HttpPost]
         [Route("logout")]
+        [Authorize]
         public async Task<ActionResult> Logout()
         {
-            await HttpContext.SignOutAsync();
+            await signInManager.SignOutAsync();
 
-            return Ok();
+            return SignOut(new AuthenticationProperties { }, CookieAuthenticationDefaults.AuthenticationScheme);
         }
 
         [HttpGet]

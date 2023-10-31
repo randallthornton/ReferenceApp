@@ -29,7 +29,8 @@ builder.Services
     .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(opts =>
     {
-
+        opts.Cookie.Name = "ReferenceAppAuth";
+        opts.LoginPath = "/login";
     });
 
 var app = builder.Build();
