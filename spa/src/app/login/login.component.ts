@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
+import { RouteNames } from '../app-routing.module';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent {
   });
   isLoading = false;
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   onLoginClicked() {
     const value = this.loginForm.value;
@@ -25,11 +27,10 @@ export class LoginComponent {
       .subscribe(
         () => {
           this.isLoading = false;
-          console.log('sweeeet');
+          this.router.navigate([RouteNames.UserInfo]);
         },
         (err) => {
           this.isLoading = false;
-          console.error('drat');
         }
       );
   }

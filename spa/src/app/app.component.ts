@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { RouteNames } from './app-routing.module';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,11 @@ export class AppComponent {
 
   onLogoutClicked() {
     this.authService.logout().subscribe(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate([RouteNames.Login]);
     });
+  }
+
+  get RouteNames() {
+    return RouteNames;
   }
 }
