@@ -28,4 +28,8 @@ export class BackendService {
   createPost(post: any) {
     return this.http.post<Post>(`${this.url}/posts`, post);
   }
+
+  deletePost(id: number) {
+    return this.http.delete(`${this.url}/posts/${id}`);
+  }
 }
