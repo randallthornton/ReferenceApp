@@ -18,9 +18,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PostsComponent } from './posts/posts.component';
+import { MatCardModule } from '@angular/material/card';
+import { PostFormComponent } from './post-form/post-form.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, WeatherForecastsComponent, UserInfoComponent],
+  declarations: [AppComponent, LoginComponent, WeatherForecastsComponent, UserInfoComponent, PostsComponent, PostFormComponent, CreatePostComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +39,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatMenuModule,
     MatListModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WeatherForecast } from './models/weather-forecast';
+import { Post } from './models/posts';
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +19,13 @@ export class BackendService {
     return this.http.get<WeatherForecast[]>(`${this.url}/secure/weatherForecast`, {
       withCredentials: true
     });
+  }
+
+  getPosts() {
+    return this.http.get<Post[]>(`${this.url}/posts`);
+  }
+
+  createPost(post: any) {
+    return this.http.post<Post>(`${this.url}/posts`, post);
   }
 }
