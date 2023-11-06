@@ -7,11 +7,15 @@ import { toSignal } from '@angular/core/rxjs-interop';
   selector: 'app-weather-forecasts',
   templateUrl: './weather-forecasts.component.html',
   styleUrls: ['./weather-forecasts.component.scss'],
+  animations: [],
 })
 export class WeatherForecastsComponent {
   weatherForecasts: Signal<WeatherForecast[]>;
 
   constructor(private backendService: BackendService) {
-    this.weatherForecasts = toSignal(this.backendService.fetchWeatherForecasts(), { initialValue: [] });
+    this.weatherForecasts = toSignal(
+      this.backendService.fetchWeatherForecasts(),
+      { initialValue: [] }
+    );
   }
 }
