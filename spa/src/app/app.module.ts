@@ -22,9 +22,10 @@ import { PostsComponent } from './posts/posts.component';
 import { MatCardModule } from '@angular/material/card';
 import { PostFormComponent } from './post-form/post-form.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, WeatherForecastsComponent, UserInfoComponent, PostsComponent, PostFormComponent, CreatePostComponent],
+  declarations: [AppComponent, LoginComponent, WeatherForecastsComponent, UserInfoComponent, PostsComponent, PostFormComponent, CreatePostComponent, RegisterUserComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

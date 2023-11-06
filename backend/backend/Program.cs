@@ -48,7 +48,14 @@ try
     builder.Services
         .AddIdentity<AppUser, IdentityRole>(config =>
         {
-
+            config.Password = new PasswordOptions
+            {
+                RequireDigit = false,
+                RequiredLength = 3,
+                RequireLowercase = false,
+                RequireUppercase = false,
+                RequireNonAlphanumeric = false,
+            };
         })
         .AddEntityFrameworkStores<UsersDbContext>()
         .AddDefaultTokenProviders();

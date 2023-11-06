@@ -1,4 +1,3 @@
-import { WeatherForecast } from './models/weather-forecast';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -6,6 +5,7 @@ import { WeatherForecastsComponent } from './weather-forecasts/weather-forecasts
 import { UserInfoComponent } from './user-info/user-info.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 export class RouteNames {
   static UserInfo = 'userInfo';
@@ -13,6 +13,7 @@ export class RouteNames {
   static WeatherForecast = 'weatherForecasts';
   static Posts = 'posts';
   static CreatePost = 'createPost';
+  static Register = 'register';
 }
 
 const routes: Routes = [
@@ -22,24 +23,28 @@ const routes: Routes = [
   },
   {
     path: RouteNames.WeatherForecast,
-    component: WeatherForecastsComponent
+    component: WeatherForecastsComponent,
   },
   {
     path: RouteNames.UserInfo,
-    component: UserInfoComponent
+    component: UserInfoComponent,
   },
   {
     path: RouteNames.Posts,
-    component: PostsComponent
+    component: PostsComponent,
   },
   {
     path: RouteNames.CreatePost,
-    component: CreatePostComponent
-  }
+    component: CreatePostComponent,
+  },
+  {
+    path: RouteNames.Register,
+    component: RegisterUserComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
