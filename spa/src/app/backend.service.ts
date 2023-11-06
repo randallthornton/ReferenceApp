@@ -32,4 +32,8 @@ export class BackendService {
   deletePost(id: number) {
     return this.http.delete(`${this.url}/posts/${id}`);
   }
+
+  updatePost(id: number, post: any) {
+    return this.http.put(`${this.url}/posts/${id}`, post);
+  }
 }

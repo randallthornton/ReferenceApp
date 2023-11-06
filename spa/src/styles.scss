@@ -32,10 +32,24 @@ $spa-theme: mat.define-light-theme((
   )
 ));
 
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$brown-palette),
+    accent: mat.define-palette(mat.$blue-grey-palette),
+    warn: mat.define-palette(mat.$yellow-palette)
+  )
+));
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($spa-theme);
+@include mat.all-component-themes($dark-theme);
+// @include mat.all-component-themes($spa-theme);
+
+@media (prefers-color-scheme: light) {
+  @include mat.all-component-themes($spa-theme);
+  // @include mat.button-color($spa-theme);
+}
 
 /* You can add global styles to this file, and also import other style files */
 

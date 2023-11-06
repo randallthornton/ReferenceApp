@@ -43,6 +43,32 @@ namespace backend.Controllers
             return Ok(request);
         }
 
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<ActionResult> UpdatePost(int id, [FromBody] CreatePostRequest request)
+        {
+            var post = await applicationDbContext.Posts.FindAsync(id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            var username = HttpContext.User.Identity.Name;
+
+            if (!string.Equals(username, post.CreatedBy, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Forbid();
+            }
+
+            post.Title = request.Title;
+            post.Content = request.Content;
+
+            await applicationDbContext.SaveChangesAsync();
+
+            return Accepted(post);
+        }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<ActionResult> DeletePost(int id)
