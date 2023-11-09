@@ -1,3 +1,4 @@
+using backend;
 using backend.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -45,6 +46,13 @@ try
         });
     });
 
+    builder.Services.AddGraphQLServer()
+        .RegisterDbContext<ApplicationDbContext>()
+        .AddQueryType<Query>()
+        .AddFiltering()
+        .AddSorting()
+        .AddProjections();
+
     builder.Services
         .AddIdentity<AppUser, IdentityRole>(config =>
         {
@@ -72,9 +80,18 @@ try
 
     using (var scope = app.Services.CreateScope())
     {
+        // For test project, automatically migrate and seed the database
         using (var context = scope.ServiceProvider.GetRequiredService<UsersDbContext>())
         {
             context.Database.EnsureCreated();
+        }
+
+        using (var appContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>())
+        {
+            appContext.Database.EnsureCreated();
+
+            // Auto-migrate the database. Definitely remove this for production apps
+            appContext.Database.Migrate();
         }
     }
 
@@ -93,6 +110,8 @@ try
     app.UseAuthorization();
 
     app.MapControllers();
+
+    app.MapGraphQL();
 
     app.Run();
 

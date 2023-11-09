@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using backend.Models;
@@ -11,9 +12,11 @@ using backend.Models;
 namespace backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231109000536_SeedBooksPt1")]
+    partial class SeedBooksPt1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,34 +98,6 @@ namespace backend.Migrations
                             AuthorId = 1,
                             SeriesId = 1,
                             Title = "Golden Son"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Morning Star"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Iron Gold"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Dark Age"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Light Bringer"
                         });
                 });
 

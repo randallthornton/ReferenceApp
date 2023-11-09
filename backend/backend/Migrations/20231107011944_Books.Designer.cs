@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using backend.Models;
@@ -11,9 +12,11 @@ using backend.Models;
 namespace backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231107011944_Books")]
+    partial class Books
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,14 +46,6 @@ namespace backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Author", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Pierce",
-                            LastName = "Brown"
-                        });
                 });
 
             modelBuilder.Entity("backend.Models.Book", b =>
@@ -80,50 +75,6 @@ namespace backend.Migrations
                     b.HasIndex("SeriesId");
 
                     b.ToTable("Book", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Red Rising"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Golden Son"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Morning Star"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Iron Gold"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Dark Age"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AuthorId = 1,
-                            SeriesId = 1,
-                            Title = "Light Bringer"
-                        });
                 });
 
             modelBuilder.Entity("backend.Models.Post", b =>
@@ -177,14 +128,6 @@ namespace backend.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Series", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AuthorId = 1,
-                            Name = "Red Rising"
-                        });
                 });
 
             modelBuilder.Entity("backend.Models.Book", b =>
