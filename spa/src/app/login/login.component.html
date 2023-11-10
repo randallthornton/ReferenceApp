@@ -29,10 +29,11 @@
         (click)="onLoginClicked()"
         [disabled]="isLoading"
       >
-        <ng-container *ngIf="!isLoading; else loading">Login</ng-container>
-        <ng-template #loading>
-          <mat-spinner [diameter]="20"> </mat-spinner>
-        </ng-template>
+        @if (!isLoading) { Login } @else {
+
+        <mat-spinner [diameter]="20"> </mat-spinner>
+
+        }
       </button>
     </div>
   </form>

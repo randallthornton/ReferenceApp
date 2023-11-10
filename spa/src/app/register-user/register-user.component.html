@@ -26,10 +26,11 @@
       (click)="onSubmitClicked()"
       [disabled]="isLoading"
     >
-      <ng-container *ngIf="!isLoading; else loading">Create User</ng-container>
-      <ng-template #loading>
-        <mat-spinner [diameter]="20"> </mat-spinner>
-      </ng-template>
+      @if (!isLoading) { Create User } @else {
+
+      <mat-spinner [diameter]="20"> </mat-spinner>
+
+      }
     </button>
   </div>
 </div>

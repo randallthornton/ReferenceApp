@@ -20,9 +20,10 @@
     [disabled]="isLoading"
     (click)="onSubmitClicked()"
   >
-    <ng-container *ngIf="!isLoading; else loading"> Submit </ng-container>
-    <ng-template #loading>
-      <mat-spinner diameter="20"></mat-spinner>
-    </ng-template>
+    @if (!isLoading) { <span>Submit</span> } @else {
+
+    <mat-spinner diameter="20"></mat-spinner>
+
+    }
   </button>
 </div>
